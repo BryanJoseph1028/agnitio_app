@@ -1,3 +1,3 @@
 # agnitio_v1
 
-A new Flutter project.
+Un proyecto en flutter para el reconocimiento de imagenes
