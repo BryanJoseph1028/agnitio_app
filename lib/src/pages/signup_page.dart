@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class signup extends StatefulWidget {
+  const signup({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<signup> createState() => _signupState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _signupState extends State<signup> {
+  TextEditingController NombreController = TextEditingController();
+  TextEditingController ApellidosController = TextEditingController();
   TextEditingController UsernameController = TextEditingController();
   TextEditingController PasswordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,10 +25,10 @@ class _LoginPageState extends State<LoginPage> {
           Colors.black, 
         ],
         )),
-       child: Scaffold(
+      child: Scaffold(
         backgroundColor: Colors.transparent,
         body: _page(),
-     ),
+       ),
     );
   }
 
@@ -38,6 +41,10 @@ class _LoginPageState extends State<LoginPage> {
           children: [
             _icon(),
             const SizedBox(height: 40),
+            _inputField("Nombre", NombreController),
+            const SizedBox(height: 20),
+            _inputField("Apellidos", ApellidosController),
+            const SizedBox(height: 20),
             _inputField("Correo Electronico",UsernameController),
             const SizedBox(height: 20),
             _inputField("Contraseña",PasswordController, isPassword: true),
@@ -53,12 +60,12 @@ class _LoginPageState extends State<LoginPage> {
 
     }
 
-    Widget _icon(){
+  Widget _icon(){
       return Container(
         decoration: BoxDecoration(
           border: Border.all(color: Colors.black, width: 2),
           shape: BoxShape.circle),  
-          child: const Icon(Icons.person, color: Colors.black, size: 123),
+          child: const Icon(Icons.engineering, color: Colors.black, size: 123),
       );
     }
 
@@ -100,23 +107,13 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
-    Widget _extraText(){
-      return Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical:10),
-        child: Wrap(
-        spacing: 10,
-          children: [
-            TextButton(
-              onPressed: (){
-                Navigator.pushNamed(context, "/signup");
-              },
-              child: const Text(
-                'Nuevo usuario'
-                )
-              )
-          ],
-        ),
-    );
+
+  Widget _extraText(){
+      return const Text(
+        "Nuevo Usuario",
+        textAlign: TextAlign.center,
+      style: TextStyle(fontSize: 16, color: Colors.white),
+      );
     }
     Widget _extraText1(){
       return const Text(
