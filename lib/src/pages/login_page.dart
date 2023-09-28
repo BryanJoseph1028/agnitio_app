@@ -22,10 +22,10 @@ class _LoginPageState extends State<LoginPage> {
           Colors.black, 
         ],
         )),
-       child: Scaffold(
+      child: Scaffold(
         backgroundColor: Colors.transparent,
         body: _page(),
-     ),
+    ),
     );
   }
 
@@ -88,7 +88,7 @@ class _LoginPageState extends State<LoginPage> {
         child: const SizedBox(
           width: double.infinity,
           child: Text(
-          "Inicio de Sesion:",
+          "Inicio de Sesion",
           textAlign: TextAlign.center,
           style: TextStyle(fontSize: 20),
         )),
@@ -100,30 +100,42 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
+  
     Widget _extraText(){
       return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical:10),
         child: Wrap(
-        spacing: 10,
+        spacing: 5,
           children: [
             TextButton(
               onPressed: (){
                 Navigator.pushNamed(context, "/signup");
               },
               child: const Text(
-                'Nuevo usuario'
+                'Nuevo Usuario'
                 )
               )
           ],
         ),
     );
     }
+    
     Widget _extraText1(){
-      return const Text(
-        "¿olvidaste tu contraseña?",
-        textAlign: TextAlign.center,
-      style: TextStyle(fontSize: 16, color: Colors.white),
-      );
+      return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical:10),
+        child: Wrap(
+        spacing: 5,
+          children: [
+            TextButton(
+              onPressed: (){
+                Navigator.pushNamed(context, "/recovery");
+              },
+              child: const Text(
+                'Recuperar Usuario'
+                )
+              )
+          ],
+        ),
+    );
     }
-
 }

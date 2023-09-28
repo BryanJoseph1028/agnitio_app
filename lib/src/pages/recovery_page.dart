@@ -1,21 +1,17 @@
 import 'package:flutter/material.dart';
 
-class signup extends StatefulWidget {
-  const signup({super.key});
+class recovery extends StatefulWidget {
+  const recovery({super.key});
 
   @override
-  State<signup> createState() => _signupState();
+  State<recovery> createState() => _recoveryState();
 }
 
-class _signupState extends State<signup> {
-  TextEditingController NombreController = TextEditingController();
-  TextEditingController ApellidosController = TextEditingController();
-  TextEditingController UsernameController = TextEditingController();
-  TextEditingController PasswordController = TextEditingController();
-
+class _recoveryState extends State<recovery> {
+    TextEditingController UsernameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return  Container(
       decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topRight,
@@ -28,7 +24,7 @@ class _signupState extends State<signup> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: _page(),
-      ),
+    ),
     );
   }
 
@@ -41,18 +37,10 @@ class _signupState extends State<signup> {
           children: [
             _icon(),
             const SizedBox(height: 40),
-            _inputField("Nombre", NombreController),
-            const SizedBox(height: 20),
-            _inputField("Apellidos", ApellidosController),
-            const SizedBox(height: 20),
             _inputField("Correo Electronico",UsernameController),
-            const SizedBox(height: 20),
-            _inputField("Contraseña",PasswordController, isPassword: true),
             const SizedBox(height: 50),
             _loginBtn(),
             const SizedBox(height: 20),
-            _extraText(),
-            _extraText1(),
           ],
         ),
         ),
@@ -60,12 +48,12 @@ class _signupState extends State<signup> {
 
     }
 
-  Widget _icon(){
+    Widget _icon(){
       return Container(
         decoration: BoxDecoration(
           border: Border.all(color: Colors.black, width: 2),
           shape: BoxShape.circle),  
-          child: const Icon(Icons.new_label_rounded, color: Colors.black, size: 123),
+          child: const Icon(Icons.new_releases_sharp, color: Colors.black, size: 123),
       );
     }
 
@@ -82,7 +70,6 @@ class _signupState extends State<signup> {
           enabledBorder: border,
           focusedBorder: border,
       ),
-      obscureText: isPassword,
       );
     }
 
@@ -90,12 +77,12 @@ class _signupState extends State<signup> {
       return ElevatedButton(
         onPressed: (){
           debugPrint("Correo Electronico"+UsernameController.text);
-          debugPrint("Contraseña"+PasswordController.text);
+
         }, 
         child: const SizedBox(
           width: double.infinity,
           child: Text(
-          "Inicio de Sesion:",
+          "Recuperar Usuario",
           textAlign: TextAlign.center,
           style: TextStyle(fontSize: 20),
         )),
@@ -108,19 +95,7 @@ class _signupState extends State<signup> {
     );
   }
 
-  Widget _extraText(){
-      return const Text(
-        "Nuevo Usuario",
-        textAlign: TextAlign.center,
-      style: TextStyle(fontSize: 16, color: Colors.white),
-      );
-    }
-    Widget _extraText1(){
-      return const Text(
-        "¿olvidaste tu contraseña?",
-        textAlign: TextAlign.center,
-      style: TextStyle(fontSize: 16, color: Colors.white),
-      );
-    }
+
+
 
 }
