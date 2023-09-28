@@ -4,9 +4,9 @@
     <item android:drawable="@drawable/bg" />
 
     <!-- You can insert your own image assets here -->
-    <!--<item>
+    <item>
         <bitmap
             android:gravity="center"
-            android:src="@mipmap/agnitio" />
-    </item>--> 
+            android:src="@mipmap/agnitio1" />
+    </item>
 </layer-list>
